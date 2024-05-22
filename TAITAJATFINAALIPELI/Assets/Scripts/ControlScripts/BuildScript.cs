@@ -102,12 +102,14 @@ public class BuildScript : MonoBehaviour
 
                     if (selectedbuilding.name == "ApartmentBuilding")
                     {
+                        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
                         //statistics.AmountOfBuildings += 1;
                         hit.collider.gameObject.name = selectedbuilding.name;
                         hit.collider.transform.position = new Vector2(hit.collider.transform.position.x, hit.collider.transform.position.y + hit.collider.transform.localScale.y * 0.12f);
                     }
                     else if (selectedbuilding.name == "WindPowerPlant")
                     {
+                        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                         //selectedbuilding.GetComponent<GameObject>().AddComponent<PowerPlantScript>();
                         hit.collider.gameObject.name = selectedbuilding.name;
                         hit.collider.AddComponent<PowerPlantScript>();
@@ -116,22 +118,26 @@ public class BuildScript : MonoBehaviour
                     }
                     else if (selectedbuilding.name == "Road")
                     {
+                        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
                         hit.collider.gameObject.name = selectedbuilding.name;
                         hit.collider.AddComponent<RoadScript>();
                         hit.collider.GetComponent<RoadScript>().statistics = statistics;
                     }
                     else if (selectedbuilding.name == "CoalPowerPlant")
                     {
+                        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
                         hit.collider.gameObject.name = selectedbuilding.name;
                         hit.collider.AddComponent<PowerPlantScript>();
                         hit.collider.GetComponent<PowerPlantScript>().statistics = statistics;
                     }
                     else if (selectedbuilding.name == "GrassPlain")
                     {
+                        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
                         hit.collider.gameObject.name = selectedbuilding.name;
                     }
                     else if (selectedbuilding.name == "SolarPowerPlant")
                     {
+                        hit.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
                         hit.collider.gameObject.name = selectedbuilding.name;
                         hit.collider.AddComponent<PowerPlantScript>();
                         hit.collider.GetComponent<PowerPlantScript>().statistics = statistics;

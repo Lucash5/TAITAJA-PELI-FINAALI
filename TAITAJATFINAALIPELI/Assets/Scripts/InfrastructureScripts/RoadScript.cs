@@ -42,10 +42,11 @@ public class RoadScript : MonoBehaviour
     {
         Refresh = true;
         yield return new WaitForSeconds(10);
-        for (int i = 0; i < map.transform.childCount; i++)
+        for (int i = 0; i < map.childCount; i++)
         {
-            if (map.transform.GetChild(i).gameObject.name == "ApartmentBuildingPowered" && Vector2.Distance(map.transform.GetChild(i).transform.position, transform.position) < RoadReach)
+            if (map.transform.GetChild(i).gameObject.name != "GrassPlain" && map.transform.GetChild(i).gameObject.name == "ApartmentBuildingPowered" && Vector2.Distance(map.transform.GetChild(i).transform.position, transform.position) < RoadReach)
             {
+                Debug.Log(Vector2.Distance(map.transform.GetChild(i).transform.position, transform.position));
                 map.transform.GetChild(i).gameObject.name = "ApartmentBuildingActive";
                 statistics.AmountOfBuildings += 1;
             }

@@ -20,6 +20,6 @@ public class MainMenuBackgroundMovement : MonoBehaviour
     }
     private void LoadGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 }

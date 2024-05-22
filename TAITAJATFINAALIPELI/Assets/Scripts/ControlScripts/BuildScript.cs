@@ -20,7 +20,7 @@ public class BuildScript : MonoBehaviour
     {
         map = gameObject.transform;
         //  if (Olli.watching == true) {hide.code == true}
-        selectedbuilding = builds[2].image.sprite;
+        selectedbuilding = null;
         builds[0].onClick.AddListener(apartmentbuilding);
         builds[1].onClick.AddListener(park);
         builds[2].onClick.AddListener(road);
@@ -44,10 +44,12 @@ public class BuildScript : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
             
-            if (hit.collider != null)
+            if (hit.collider != null && selectedbuilding != hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite)
             {
+
+                Debug.Log(selectedbuilding.name);
                 if (selectedbuilding.name == "CoalPowerPlant") {price = 10500;}
-                if (selectedbuilding.name == "WindPowerPlant") { price = 9750; }
+                if (selectedbuilding.name == "WindPowerPlant") { price = 9250; }
                 if (selectedbuilding.name == "SolarPowerPlant") { price = 6000; }
                 if (selectedbuilding.name == "Road") { price = 2500; }
                 if (selectedbuilding.name == "ApartmentBuilding") { price = 15000; }
@@ -55,12 +57,16 @@ public class BuildScript : MonoBehaviour
                 if (selectedbuilding.name == "GrassPlain")
                 {
                     if (hit.collider.gameObject.name == "CoalPowerPlant") { price = 10500 * 0.25f; }
-                    if (hit.collider.gameObject.name == "WindPowerPlant") { price = 9750 * 0.25f; }
+                    if (hit.collider.gameObject.name == "WindPowerPlant") { price = 9250 * 0.25f; }
                     if (hit.collider.gameObject.name == "SolarPowerPlant") { price = 6000 * 0.25f; }
                     if (hit.collider.gameObject.name == "Road") { price = 2500 * 0.25f; }
                     if (hit.collider.gameObject.name == "ApartmentBuilding") { price = 15000 * 0.25f; }
                 }
 
+                    if (hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite.name == "ApartmentBuilding" || hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite.name == "WindPowerPlant")
+                    {
+                        hit.collider.transform.position = new Vector2(hit.collider.transform.position.x, hit.collider.transform.position.y - hit.collider.transform.localScale.y * 0.12f);
+                    }
 
                 if (statistics.Funds >= price && hit.collider.gameObject.name != selectedbuilding.name)
                 {
@@ -94,11 +100,11 @@ public class BuildScript : MonoBehaviour
                     Destroy(hit.collider.gameObject.GetComponent<PowerPlantScript>());
                 }
 
-
                     if (selectedbuilding.name == "ApartmentBuilding")
                     {
                         //statistics.AmountOfBuildings += 1;
                         hit.collider.gameObject.name = selectedbuilding.name;
+                        hit.collider.transform.position = new Vector2(hit.collider.transform.position.x, hit.collider.transform.position.y + hit.collider.transform.localScale.y * 0.12f);
                     }
                     else if (selectedbuilding.name == "WindPowerPlant")
                     {
@@ -106,6 +112,7 @@ public class BuildScript : MonoBehaviour
                         hit.collider.gameObject.name = selectedbuilding.name;
                         hit.collider.AddComponent<PowerPlantScript>();
                         hit.collider.GetComponent<PowerPlantScript>().statistics = statistics;
+                        hit.collider.transform.position = new Vector2(hit.collider.transform.position.x, hit.collider.transform.position.y + hit.collider.transform.localScale.y * 0.12f);
                     }
                     else if (selectedbuilding.name == "Road")
                     {
@@ -125,6 +132,7 @@ public class BuildScript : MonoBehaviour
                     }
                 }
             }
+            //selectedbuilding = null;
         }
         
 

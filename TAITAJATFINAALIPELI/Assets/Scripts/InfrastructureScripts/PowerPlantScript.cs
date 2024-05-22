@@ -19,6 +19,7 @@ public class PowerPlantScript : MonoBehaviour
         {
             powerplantrange = 1.75f;
             statistics.PowerProduction += 320;
+            statistics.CleanPowerProduction += 320;
         }
         else if (gameObject.name == "CoalPowerPlant")
         {
@@ -28,8 +29,9 @@ public class PowerPlantScript : MonoBehaviour
         }
         else if (gameObject.name == "SolarPowerPlant")
         {
-            powerplantrange = 1f;
+            powerplantrange = 1.01f;
             statistics.PowerProduction += 160;
+            statistics.CleanPowerProduction += 160;
         }
 
 

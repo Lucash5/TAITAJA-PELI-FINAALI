@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Statistics : MonoBehaviour
 {
+    public TMP_Text popularity;
+    public TMP_Text funds;
+    public TMP_Text pollution;
+    public TMP_Text decisionpower;
+    public TMP_Text emissions;
+    public TMP_Text powerproduction;
+    public TMP_Text sustainability;
+    public TMP_Text buildings;
+
     public float PoliticalDecisionPower;
 
     public float Funds;
@@ -14,6 +24,7 @@ public class Statistics : MonoBehaviour
     public float PollutionDissapationRate;
 
     public float PowerProduction;
+    public float CleanPowerProduction;
 
     public float AmountOfBuildings;
 
@@ -26,6 +37,7 @@ public class Statistics : MonoBehaviour
     private bool PollutionBool;
     private bool PopularityBool;
     private bool PDPBool;
+    private bool aaaa;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +51,22 @@ public class Statistics : MonoBehaviour
         if (!PollutionBool) { StartCoroutine(PollutionCoolDown()); }
         if (!PopularityBool) { StartCoroutine(PopularityCoolDown());}
         if (!PDPBool) { StartCoroutine(PDPCoolDown());}
+        if (!aaaa) { StartCoroutine(SustainabilityCooldown()); }
 
         if (Funds >= 1000000 && Pollution <= 0 && SelfSustainability >= 1)
         {
             SceneManager.LoadScene("EndScene");
         }
+
+        popularity.text = "Popularity : " + Popularity.ToString();
+        popularity.text = "Funds : " + Funds.ToString();
+        popularity.text = "Emissions : " + EmissionAmount.ToString() + "/s";
+        popularity.text = "PowerP : " + PowerProduction.ToString();
+        popularity.text = "Buildings : " + AmountOfBuildings.ToString();
+        popularity.text = "Sustainability : " + (SelfSustainability * 100).ToString() + "%";
+        popularity.text = "DecisionPower : " + PoliticalDecisionPower.ToString();
+        popularity.text = "Pollution : " + Pollution.ToString();
+
     }
 
     IEnumerator TaxCoolDown()
@@ -92,5 +115,12 @@ public class Statistics : MonoBehaviour
         PDPBool = false;
     }
 
+    IEnumerator SustainabilityCooldown()
+    {
+        aaaa = true;
+        yield return new WaitForSeconds(5);
+        SelfSustainability = CleanPowerProduction / PowerProduction;
+        aaaa = false;
+    }
 
 }

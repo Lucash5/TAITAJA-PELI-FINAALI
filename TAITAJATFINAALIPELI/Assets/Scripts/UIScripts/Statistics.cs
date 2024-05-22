@@ -74,8 +74,9 @@ public class Statistics : MonoBehaviour
     {
         TaxBool = true;
         yield return new WaitForSeconds(5);
-        Funds += AmountOfBuildings * 1000 * TaxRate * Popularity;
+        Funds += AmountOfBuildings * 10000 * TaxRate * Popularity;
         TaxBool = false;
+        Funds = Mathf.Round(Funds);
     }
     IEnumerator PollutionCoolDown()
     {

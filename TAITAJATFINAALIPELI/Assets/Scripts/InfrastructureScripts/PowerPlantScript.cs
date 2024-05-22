@@ -10,11 +10,18 @@ public class PowerPlantScript : MonoBehaviour
     private Transform map;
 
 
-
+    bool coal;
 
     private bool Refresh;
     // Start is called before the first frame update 1.75
-    
+    private void OnDestroy()
+    {
+        Debug.Log("TEST");
+        if (coal == true)
+        {
+            statistics.EmissionAmount -= 100;
+        }
+    }
     void Start()
     {
         if (gameObject.name == "WindPowerPlant")
@@ -25,6 +32,7 @@ public class PowerPlantScript : MonoBehaviour
         }
         else if (gameObject.name == "CoalPowerPlant")
         {
+            coal = true;
             powerplantrange = 2.85f;
             statistics.EmissionAmount += 100;
             statistics.PowerProduction += 1000;

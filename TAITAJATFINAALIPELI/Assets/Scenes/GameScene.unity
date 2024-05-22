@@ -7468,8 +7468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -275, y: -30}
-  m_SizeDelta: {x: 225, y: 50}
+  m_AnchoredPosition: {x: -261.6, y: -30}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &102169982
 MonoBehaviour:
@@ -126880,8 +126880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 232.2, y: -30}
-  m_SizeDelta: {x: 225, y: 50}
+  m_AnchoredPosition: {x: 269.41, y: -30}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775717326
 MonoBehaviour:
@@ -140942,7 +140942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 232.2, y: -65}
+  m_AnchoredPosition: {x: 232.2, y: -100}
   m_SizeDelta: {x: 225, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997015982
@@ -140965,7 +140965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Buildings : 3
+  m_text: 'Active Buildings : 3
 
 '
   m_isRightToLeft: 0

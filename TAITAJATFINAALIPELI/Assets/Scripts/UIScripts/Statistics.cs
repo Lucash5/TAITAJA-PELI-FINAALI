@@ -101,7 +101,7 @@ public class Statistics : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (Popularity > 0.1)
         {
-        Popularity = Popularity - Pollution * 0.00001f + SelfSustainability * 0.01f;
+        Popularity = Popularity - Pollution * 0.00001f + SelfSustainability * 0.1f;
         }
         else if(Popularity < 0.1)
         {

@@ -107,13 +107,14 @@ public class Statistics : MonoBehaviour
             Popularity = 0.1f;
         }
         PopularityBool = false;
+        Popularity = Mathf.Round(Popularity * 10.0f) * 0.1f;
     }
 
     IEnumerator PDPCoolDown()
     {
         PDPBool = true;
         yield return new WaitForSeconds(5);
-        PoliticalDecisionPower += SelfSustainability * Popularity;
+        //PoliticalDecisionPower += SelfSustainability * Popularity;
         PDPBool = false;
     }
 

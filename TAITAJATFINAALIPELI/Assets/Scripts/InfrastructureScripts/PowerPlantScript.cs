@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class PowerPlantScript : MonoBehaviour
 
     private bool Refresh;
     // Start is called before the first frame update 1.75
+    
     void Start()
     {
         if (gameObject.name == "WindPowerPlant")

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -59,13 +60,13 @@ public class Statistics : MonoBehaviour
         }
 
         popularity.text = "Popularity : " + Popularity.ToString();
-        popularity.text = "Funds : " + Funds.ToString();
-        popularity.text = "Emissions : " + EmissionAmount.ToString() + "/s";
-        popularity.text = "PowerP : " + PowerProduction.ToString();
-        popularity.text = "Buildings : " + AmountOfBuildings.ToString();
-        popularity.text = "Sustainability : " + (SelfSustainability * 100).ToString() + "%";
-        popularity.text = "DecisionPower : " + PoliticalDecisionPower.ToString();
-        popularity.text = "Pollution : " + Pollution.ToString();
+        funds.text = "Funds : " + Funds.ToString();
+        emissions.text = "Emissions : " + EmissionAmount.ToString() + "/s";
+        powerproduction.text = "PowerP : " + PowerProduction.ToString();
+        buildings.text = "Buildings : " + AmountOfBuildings.ToString();
+        sustainability.text = "Sustainability : " + (SelfSustainability * 100).ToString() + "%";
+        decisionpower.text = "DecisionPower : " + PoliticalDecisionPower.ToString();
+        pollution.text = "Pollution : " + Pollution.ToString();
 
     }
 

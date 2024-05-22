@@ -22,18 +22,20 @@ public class BuildScript : MonoBehaviour
         //  if (Olli.watching == true) {hide.code == true}
         selectedbuilding = null;
         builds[0].onClick.AddListener(apartmentbuilding);
-        builds[1].onClick.AddListener(park);
+        builds[1].onClick.AddListener(windpowerplant);
         builds[2].onClick.AddListener(road);
-        builds[3].onClick.AddListener(windpowerplant);
+        builds[3].onClick.AddListener(road2);
         builds[4].onClick.AddListener(coalpowerplant);
         builds[5].onClick.AddListener(grassplain);
+        builds[6].onClick.AddListener(solarpowerplant);
     }
     private void apartmentbuilding() { switchbuilding(builds[0].image.sprite); }
-    private void park() { switchbuilding(builds[1].image.sprite); }
+    private void windpowerplant() { switchbuilding(builds[1].image.sprite); }
     private void road() { switchbuilding(builds[2].image.sprite); }
-    private void windpowerplant() { switchbuilding(builds[3].image.sprite); }
+    private void road2() { switchbuilding(builds[3].image.sprite); }
     private void coalpowerplant() { switchbuilding(builds[4].image.sprite); }
     private void grassplain() { switchbuilding(GrassPlain); }
+    private void solarpowerplant() { switchbuilding(builds[6].image.sprite); }
     // Update is called once per frame
 
     void Update()
@@ -46,8 +48,6 @@ public class BuildScript : MonoBehaviour
             
             if (hit.collider != null && selectedbuilding != hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite)
             {
-
-                Debug.Log(selectedbuilding.name);
                 if (selectedbuilding.name == "CoalPowerPlant") {price = 10500;}
                 if (selectedbuilding.name == "WindPowerPlant") { price = 9250; }
                 if (selectedbuilding.name == "SolarPowerPlant") { price = 6000; }
@@ -129,6 +129,12 @@ public class BuildScript : MonoBehaviour
                     else if (selectedbuilding.name == "GrassPlain")
                     {
                         hit.collider.gameObject.name = selectedbuilding.name;
+                    }
+                    else if (selectedbuilding.name == "SolarPowerPlant")
+                    {
+                        hit.collider.gameObject.name = selectedbuilding.name;
+                        hit.collider.AddComponent<PowerPlantScript>();
+                        hit.collider.GetComponent<PowerPlantScript>().statistics = statistics;
                     }
                 }
             }

@@ -26,6 +26,7 @@ public class Statistics : MonoBehaviour
 
     public float PowerProduction;
     public float CleanPowerProduction;
+    public float DirtyPowerProduction;
 
     public float AmountOfBuildings;
 
@@ -59,11 +60,11 @@ public class Statistics : MonoBehaviour
             SceneManager.LoadScene("EndScene");
         }
 
-        popularity.text = "Popularity : " + Popularity.ToString();
+        popularity.text = "Popularity : " + (Mathf.Round(Popularity * 10.0f) * 0.1f).ToString();
         funds.text = "Funds : " + Funds.ToString();
         emissions.text = "Emissions : " + EmissionAmount.ToString() + "/s";
         powerproduction.text = "PowerP : " + PowerProduction.ToString();
-        buildings.text = "Buildings : " + AmountOfBuildings.ToString();
+        buildings.text = "Active Buildings : " + AmountOfBuildings.ToString();
         sustainability.text = "Sustainability : " + (SelfSustainability * 100).ToString() + "%";
         decisionpower.text = "DecisionPower : " + PoliticalDecisionPower.ToString();
         pollution.text = "Pollution : " + Pollution.ToString();
@@ -107,7 +108,7 @@ public class Statistics : MonoBehaviour
             Popularity = 0.1f;
         }
         PopularityBool = false;
-        Popularity = Mathf.Round(Popularity * 10.0f) * 0.1f;
+        
     }
 
     IEnumerator PDPCoolDown()

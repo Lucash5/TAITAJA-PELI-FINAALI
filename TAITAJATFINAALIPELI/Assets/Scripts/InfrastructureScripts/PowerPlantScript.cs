@@ -13,10 +13,12 @@ public class PowerPlantScript : MonoBehaviour
     bool coal;
 
     private bool Refresh;
+
+    private float powerproduction;
     // Start is called before the first frame update 1.75
     private void OnDestroy()
     {
-        Debug.Log("TEST");
+        statistics.PowerProduction -= powerproduction;
         if (coal == true)
         {
             statistics.EmissionAmount -= 100;
@@ -29,6 +31,7 @@ public class PowerPlantScript : MonoBehaviour
             powerplantrange = 1.75f;
             statistics.PowerProduction += 320;
             statistics.CleanPowerProduction += 320;
+            powerproduction = 320;
         }
         else if (gameObject.name == "CoalPowerPlant")
         {
@@ -36,12 +39,15 @@ public class PowerPlantScript : MonoBehaviour
             powerplantrange = 2.85f;
             statistics.EmissionAmount += 100;
             statistics.PowerProduction += 1000;
+            statistics.DirtyPowerProduction += 1000;
+            powerproduction = 1000;
         }
         else if (gameObject.name == "SolarPowerPlant")
         {
             powerplantrange = 1.01f;
             statistics.PowerProduction += 160;
             statistics.CleanPowerProduction += 160;
+            powerproduction = 160;
         }
 
 

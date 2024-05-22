@@ -30,10 +30,7 @@ public class InfrastructureScanner : MonoBehaviour
         {
             if (map.GetChild(i).gameObject.name == "ApartmentBuilding" || map.GetChild(i).gameObject.name == "ApartmentBuildingPower" || map.GetChild(i).gameObject.name == "ApartmentBuildingRoad" || map.GetChild(i).gameObject.name == "ApartmentBuildingPower&Road")
             {
-                for (int j = 0; j < map.childCount; j++)
-                {
-
-                }
+                
             }
         }
     }
